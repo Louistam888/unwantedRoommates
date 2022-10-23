@@ -1,0 +1,119 @@
+@use "./variables" as *;
+
+.carousel {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;  
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+    filter: grayscale(1) contrast(1.8) brightness(0.6);
+    mix-blend-mode: multiply;
+    position: relative;
+  }
+}
+
+.ratFacts {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 30px;
+  font-family: $bodyText; 
+  font-size: 3.5rem;
+  text-shadow: -1px -1px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+  text-align: center;
+}
+
+.trackContainer {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.track {
+  padding: 0;
+  margin: 0;
+  list-style: none; 
+  position: relative;
+  height: 100%;
+  transition: transform 0.5s ease-in;
+}
+
+.carouselSlide {
+  position: absolute; 
+  top: 0;
+  bottom: 0; 
+  width: 100%;
+}
+
+.buttonContainer {
+  position: absolute;
+  z-index: 3; 
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.carouselButtonLeft, .carouselButtonRight{
+  display: flex;
+  font-size: 8rem;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.795);
+  cursor: pointer; 
+  z-index: 3;
+  width: 50%;
+  position: absolute;
+}
+
+.carouselButtonLeft {
+  left: 0;
+  transform: rotate(180deg);
+  justify-content: right;
+}
+
+.carouselButtonRight {
+  right: 0;
+  justify-content: right;
+}
+
+.carouselNav {
+  background: white;
+  display: flex;
+  justify-content: center; 
+  padding: 10px 0; 
+}
+
+.carouselIndicator {
+  border: 0; 
+  border-radius: 50%; 
+  width: 15px;
+  height: 15px; 
+  background: black; 
+  margin: 0 10px; 
+  cursor: pointer;
+}
+
+.carouselIndicator.currentSlide {
+  background: rgba(99, 98, 98, 0.75);
+}
+
+.isHidden { 
+  display: none; 
+}

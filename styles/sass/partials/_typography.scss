@@ -1,0 +1,14 @@
+@use "./variables" as *;
+
+@font-face {
+  font-family: "NotoSansJP";
+  src: url("/fonts/Noto_Sans_JP/NotoSansJP-Regular.otf");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "AverageSans";
+  src: url("/fonts/AverageSans/AverageSans-Regular.ttf");
+  font-weight: normal;
+}
+
+

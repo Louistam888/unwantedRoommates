@@ -1,0 +1,129 @@
+@use "./variables" as *;
+
+//HEADER
+
+header {
+  height: 600px; 
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0.15) 50%, rgba(0, 0, 0, 0.9) 100%), url(/assets/new_york_empire_state_building_cityscape.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 40%;
+  position: relative;
+}
+
+.headerElementsContainer {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainTextContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+h1 {
+  font-family: $header;
+  font-size: 6.4rem;
+  color: #C72E2E;
+  text-transform: uppercase;
+  line-height: 5.875rem;
+  letter-spacing: 0.175rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.h1Span {
+  font-family: $header;
+  font-size:  1.6rem;
+  color: #000000;
+  font-weight: normal;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  line-height: 2.3rem;
+  letter-spacing: 0.175rem;
+  margin: 15px 0;
+}
+
+.explained {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.aboutApp { 
+  font-size: 3.5rem; 
+  color: #ffffff;
+  text-align: center;
+  line-height: 3.5rem;
+  text-shadow: -1px -1px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
+  margin-bottom: 50px;
+}
+
+
+//SEARCH SECTION
+
+input {
+  height: 7.3rem;
+  font-size: 2.4rem;
+  padding: 0 10px;
+  font-family: $bodyText;
+}
+
+form  {
+  width: 60%;
+}
+
+.addressEntry{
+  display: flex;
+  flex: 1 1 75%; 
+}
+
+#houseNumber {
+  width: 20%;
+}
+
+#streetName {
+  width: 80%;
+}
+
+#borough {
+  flex: 1 4 25%; 
+}
+
+form input::placeholder, select, option {
+  font-size: 2.4rem;
+  font-family: $bodyText, Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
+}
+
+.inputBar {
+  display: flex;
+  justify-content: center;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.submit {
+  cursor: pointer;
+  width: auto;
+}
+
+.search {
+  display: none;
+}
+
+

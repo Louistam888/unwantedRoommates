@@ -1,0 +1,19 @@
+@use "./variables" as *;
+
+footer {
+  background-color: #FFFFFF;
+}
+
+.footerText {
+  padding: 20px 0;
+}
+
+.junoLink, .footerText {
+  display: flex;
+  justify-content: center;
+  font-family: $bodyText;
+  font-size: 2rem;
+  text-align: center; 
+  color: #000000;
+}
+
