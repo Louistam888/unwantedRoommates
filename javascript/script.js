@@ -95,7 +95,7 @@ app.displayResults = (arrayOfObjects) => {
       resultContainer.append(record, details); 
   
     const append = () => {
-      document.querySelector('.inspectionResults').append(resultContainer); //for some reason the last li appended is offset in alignment  
+      document.querySelector('.inspectionResults').append(resultContainer); 
     }
 
     setTimeout(() => {
@@ -112,8 +112,11 @@ app.events = () => {
   document.querySelector(".inspectionResults").replaceChildren();
 
     const house =  document.querySelector("#houseNumber").value;
-    const street = document.querySelector("#streetName").value.toUpperCase();
+    const streetRaw = document.querySelector("#streetName").value
+    const street = streetRaw.replace(/(\d+)(st|nd|rd|th)/, "$1").toUpperCase();
     const borough = document.querySelector("#borough").value;
+
+    console.log(street)
 
   app.getRecords(house, street, borough)
   });
