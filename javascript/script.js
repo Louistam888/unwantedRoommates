@@ -18,7 +18,7 @@ app.getBedBugRecords = (house, street, borough)=> {
     "$order": "filing_date DESC",
     "house_number": house,
     "street_name": street,
-    "borough": borough,
+    "borough": borough.toUpperCase(),
   });
 
   fetch(url).then((bedbug) =>{
@@ -48,7 +48,7 @@ app.getBedBugRecords = (house, street, borough)=> {
 
     } else {
 
-    app.displayResults(jsonData);
+    // app.displayResults(jsonData);
     }
   })
   .catch((error)=> {
