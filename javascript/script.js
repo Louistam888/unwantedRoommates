@@ -1,10 +1,66 @@
 const app = {};
 
-app.token = "ZLv4DuWOXJMDJjtoemNuEtwro"
+app.token = "sS3zbpWnUhAq2mVIM0BSwroqz"
+
+//URLS
 app.url = "https://data.cityofnewyork.us/resource/p937-wjvj.json"
+app.url2 = "https://data.cityofnewyork.us/resource/wz6d-d3jb.json"
 
 
-app.getRecords = (house, street, borough)=> {
+//FUNCTION TO FETCH BEDBUG API RECORDS 
+app.getBedBugRecords = (house, street, borough)=> {
+
+  const url = new URL (app.url2);
+ 
+  url.search = new URLSearchParams({
+    "$$app_token": app.token,
+    "$limit": 5,
+    "$order": "filing_date DESC",
+    "house_number": house,
+    "street_name": street,
+    "borough": borough,
+  });
+
+  fetch(url).then((bedbug) =>{
+  
+    if (bedbug.ok) {
+      return bedbug.json();
+    } else {
+      throw new Error("There was an unexpected problem with the API. Please try again later.")
+    }
+  })
+  .then((jsonData) =>{
+    console.log(jsonData)
+    if (jsonData.length === 0) {
+
+      const noResults = document.createElement("div");
+      noResults.classList.add("noRecords");
+      noResults.innerHTML =
+      `<p class="noRecords"> No records found. You're probably safe from bedbugs.</p>`
+
+      const append = () => {
+        document.querySelector(".inspectionResults2").append(noResults);
+      }
+
+      setTimeout(() => {
+        append();
+      }, 100);
+
+    } else {
+
+    app.displayResults(jsonData);
+    }
+  })
+  .catch((error)=> {
+    noResults.classList.add("noRecords");
+      noResults.innerHTML =
+      `<p class="noRecords"> Sorry there was a problem with your request. Please try again later</p>`
+  });
+};
+
+
+//FUNCTION TO FETCH RAT API RECORDS
+app.getRatRecords = (house, street, borough)=> {
 
   const url = new URL (app.url);
  
@@ -32,7 +88,7 @@ app.getRecords = (house, street, borough)=> {
       const noResults = document.createElement("div");
       noResults.classList.add("noRecords");
       noResults.innerHTML =
-      `<p class="noRecords"> No records found. You're probably safe.</p>`
+      `<p class="noRecords"> No records found. You're probably safe from rats.</p>`
 
       const append = () => {
         document.querySelector(".inspectionResults").append(noResults);
@@ -118,7 +174,8 @@ app.events = () => {
 
     console.log(street)
 
-  app.getRecords(house, street, borough)
+  app.getRatRecords(house, street, borough)
+  app.getBedBugRecords(house, street, borough)
   });
 };
  

@@ -667,6 +667,24 @@ form input::placeholder, select, option {
   text-align: center;
 }
 
+.returnContainer {
+  width: 100%;
+  display: flex;
+  border: 2px solid purple;
+}
+
+.inspectionResults, .inspectionResults2 {
+  width: 50%;
+}
+
+.inspectionResults {
+  border: 2px solid green;
+}
+
+.inspectionResults2 {
+  border: 2px solid blue;
+}
+
 h2 {
   font-family: "NotoSansJP";
   font-size: 5rem;
@@ -687,8 +705,7 @@ h2 {
   display: flex;
   justify-content: center;
   width: 100%;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border: 2px solid black;
   animation: change 0.8s ease;
 }
 
