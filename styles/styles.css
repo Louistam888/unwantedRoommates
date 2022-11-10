@@ -670,11 +670,12 @@ form input::placeholder, select, option {
 .returnContainer {
   width: 100%;
   display: flex;
+  flex-direction: column;
   border: 2px solid purple;
 }
 
 .inspectionResults, .inspectionResults2 {
-  width: 50%;
+  width: 100%;
 }
 
 .record, .details {

@@ -7,6 +7,16 @@ app.url = "https://data.cityofnewyork.us/resource/p937-wjvj.json"
 app.url2 = "https://data.cityofnewyork.us/resource/wz6d-d3jb.json"
 
 
+//REUSABLE FUNCTION TO CONVERT TIME TO HUMAN READABLE FORMAT
+const convertTime = (timeObj) => { 
+  return new Date(timeObj).toLocaleDateString("en-us", {
+    year: "numeric",
+    month: "short",
+    day: "numeric"
+  })
+}
+
+
 //FUNCTION TO FETCH BEDBUG API RECORDS 
 app.getBedBugRecords = (house, street, borough)=> {
 
@@ -58,19 +68,19 @@ app.getBedBugRecords = (house, street, borough)=> {
   });
 };
 
+
 //FUNCTION TO DISPLAY BEDBUG RESULTS
 
 app.displayBedBugRecords = (arrayOfObjects) => {
   arrayOfObjects.forEach((obj) =>{
-
     
     const number = obj.house_number;
     const address = obj.street_name;
     const borough = obj.borough;
     const zipCode = obj.postcode;
-    const fileDate = obj.filing_date;
-    const fileStart = obj.filing_period_start_date;
-    const fileEnd = obj.filling_period_end_date;
+    const fileDate = convertTime(obj.filing_date);
+    const fileStart = convertTime(obj.filing_period_start_date);
+    const fileEnd = convertTime(obj.filling_period_end_date);
     const totalUnits = obj.of_dwelling_units;
     const infestedUnits = obj.infested_dwelling_unit_count;
     const infestedPercentage = Math.round((infestedUnits/totalUnits) * 100) + "%";  
@@ -87,7 +97,7 @@ app.displayBedBugRecords = (arrayOfObjects) => {
       <p class = "recordDetails"> ZIP CODE:</p>
       <p class = "recordDetails"> RESULTS REPORTED:</p>
       <p class = "recordDetails"> INSPECTION PERIOD:</p>
-      <p class = "recordDetails"> UNITS FOUND INFESTED:</p>
+      <p class = "recordDetails"> UNITS INFESTED:</p>
     </div>
     `
 
@@ -103,7 +113,7 @@ app.displayBedBugRecords = (arrayOfObjects) => {
       <p class = "recordDetails"> ${infestedPercentage}</p>
     </div>`
   
-      resultContainer.append(record, details); 
+    resultContainer.append(record, details); 
   
     const append = () => {
       document.querySelector('.inspectionResults2').append(resultContainer); 
@@ -114,13 +124,6 @@ app.displayBedBugRecords = (arrayOfObjects) => {
     }, 100);
   })
 }
-
-
-
-
-
-
-
 
 
 
@@ -183,7 +186,7 @@ app.displayRatResults = (arrayOfObjects) => {
     const address = obj.street_name;
     const zipCode = obj.zip_code;
     const borough = obj.borough;
-    const date = obj.inspection_date;
+    const date = convertTime(obj.inspection_date);
     const initial = obj.inspection_type;
     const iResult = obj.result;
     
