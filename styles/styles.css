@@ -259,170 +259,6 @@ a {
   src: url("/fonts/AverageSans/AverageSans-Regular.ttf");
   font-weight: normal;
 }
-@media (max-width: 1000px) {
-  form {
-    width: 100%;
-  }
-  .inputBar {
-    flex-direction: column;
-    width: 100%;
-    overflow: auto;
-  }
-  .addressEntry {
-    width: 100%;
-  }
-  #borough {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 10px 0;
-    text-align: center;
-  }
-  .submit {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-  }
-  .submit img {
-    display: none;
-  }
-  .search {
-    display: flex !important;
-    font-size: 2.4rem;
-    text-transform: uppercase;
-    text-align: center;
-    justify-content: center;
-    padding: 10px 0;
-  }
-  h1 {
-    font-size: 5rem !important;
-  }
-  h3 {
-    font-size: 2rem !important;
-  }
-  .ratFacts, .aboutApp {
-    font-size: 3rem !important;
-  }
-}
-@media (max-width: 780px) {
-  .mainTextContainer {
-    margin-top: 50px;
-  }
-  form input::placeholder, select, option {
-    font-size: 2rem !important;
-  }
-  input {
-    font-size: 2rem !important;
-    padding: 0 5px !important;
-  }
-  h1 {
-    font-size: 3.5rem !important;
-    line-height: 1rem !important;
-  }
-  .h1Span {
-    font-size: 1.6rem !important;
-    line-height: 2.3rem !important;
-  }
-  h3, p {
-    font-size: 1.8rem !important;
-  }
-  .ratFacts, .aboutApp {
-    font-size: 2.8rem !important;
-    line-height: 2.6rem !important;
-  }
-}
-@media (max-width: 680px) {
-  form input::placeholder, select, option {
-    font-size: 1.8rem !important;
-  }
-  input {
-    font-size: 1.8rem !important;
-  }
-  h1 {
-    font-size: 3.5rem !important;
-    line-height: 1rem !important;
-  }
-  .h1Span {
-    font-size: 1.6rem !important;
-    line-height: 2rem !important;
-    padding: 0 20px;
-  }
-  .carousel {
-    margin-bottom: 50px !important;
-  }
-  h2 {
-    font-size: 3rem !important;
-  }
-  h3 {
-    font-size: 1.3rem !important;
-  }
-  .ratFacts, .aboutApp {
-    font-size: 2rem !important;
-    line-height: 2.3rem !important;
-    padding-left: 30px !important;
-    padding-right: 30px !important;
-  }
-}
-@media (max-width: 485px) {
-  form input::placeholder, select, option {
-    font-size: 1.5rem !important;
-  }
-  input {
-    font-size: 1.5rem !important;
-  }
-  h1 {
-    font-size: 2.8rem !important;
-    line-height: 1rem !important;
-  }
-  .h1Span {
-    font-size: 1.4rem !important;
-    line-height: 2.3rem !important;
-    padding: 0 20px !important;
-  }
-  .carousel {
-    margin-bottom: 50px !important;
-  }
-  h2 {
-    font-size: 3rem !important;
-  }
-  h3 {
-    font-size: 1.3rem !important;
-  }
-  .ratFacts, .aboutApp {
-    font-size: 2rem !important;
-    line-height: 2.3rem !important;
-  }
-}
-@media (max-width: 435px) {
-  h1 {
-    font-size: 2.1rem !important;
-  }
-  .h1Span {
-    font-size: 1rem !important;
-    line-height: 1.5rem !important;
-    padding: 0 20px !important;
-  }
-  #houseNumber {
-    width: 30% !important;
-  }
-  #streetName {
-    width: 70% !important;
-  }
-  .recordDetails {
-    font-size: 1rem !important;
-  }
-  .labels {
-    padding-right: 5px !important;
-  }
-  .information {
-    padding-left: 5px !important;
-  }
-  h3 {
-    font-size: 0.9rem !important;
-  }
-}
 header {
   height: 600px;
   width: 100%;
@@ -501,6 +337,7 @@ input {
 
 form {
   width: 60%;
+  border: 2px solid green;
 }
 
 .addressEntry {
@@ -671,7 +508,6 @@ form input::placeholder, select, option {
   width: 100%;
   display: flex;
   flex-direction: column;
-  border: 2px solid purple;
 }
 
 .inspectionResults, .inspectionResults2 {
@@ -680,14 +516,6 @@ form input::placeholder, select, option {
 
 .record, .details {
   width: 50%;
-}
-
-.inspectionResults {
-  border: 2px solid green;
-}
-
-.inspectionResults2 {
-  border: 2px solid blue;
 }
 
 h2 {
@@ -702,6 +530,11 @@ h2 {
   width: 100%;
   text-align: center;
   margin: 20px 0;
+}
+
+.h2Results {
+  font-size: 3rem;
+  margin-bottom: 0;
 }
 
 .resultContainer {
@@ -768,7 +601,8 @@ h2 {
   background-color: #161515;
   padding: 10px;
 }
-.accordionItemHeader h3 {
+
+h3 {
   font-family: "AverageSans";
   font-size: 2.4rem;
   text-transform: uppercase;
@@ -824,4 +658,169 @@ footer {
   font-size: 2rem;
   text-align: center;
   color: #000000;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  form {
+    width: 100%;
+  }
+  .inputBar {
+    flex-direction: column;
+    width: 100%;
+    overflow: auto;
+  }
+  .addressEntry {
+    width: 100%;
+  }
+  #borough {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .submit {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
+  .submit img {
+    display: none;
+  }
+  .search {
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 0;
+    display: flex;
+  }
+  .ratFacts, .aboutApp {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 780px) {
+  .mainTextContainer {
+    margin-top: 50px;
+  }
+  form input::placeholder, select, option {
+    font-size: 2rem;
+  }
+  input {
+    font-size: 2rem;
+    padding: 0 5px;
+  }
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1rem;
+  }
+  .h1Span {
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+  }
+  h3, p {
+    font-size: 1.8rem;
+  }
+  .ratFacts, .aboutApp {
+    font-size: 2.8rem;
+    line-height: 2.6rem;
+  }
+}
+@media (max-width: 680px) {
+  form input::placeholder, select, option {
+    font-size: 1.8rem;
+  }
+  input {
+    font-size: 1.8rem;
+  }
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1rem;
+  }
+  .h1Span {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    padding: 0 20px;
+  }
+  .carousel {
+    margin-bottom: 50px;
+  }
+  h2, .h2esults {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  .ratFacts, .aboutApp {
+    font-size: 2rem;
+    line-height: 2.3rem;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+@media (max-width: 485px) {
+  form input::placeholder, select, option {
+    font-size: 1.5rem;
+  }
+  input {
+    font-size: 1.5rem;
+  }
+  h1 {
+    font-size: 2.8rem;
+    line-height: 1rem;
+  }
+  .h1Span {
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+    padding: 0 20px;
+  }
+  .carousel {
+    margin-bottom: 50px;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  .ratFacts, .aboutApp {
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
+}
+@media (max-width: 435px) {
+  h1 {
+    font-size: 2.1rem;
+  }
+  .h1Span {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0 20px;
+  }
+  #houseNumber {
+    width: 30%;
+  }
+  #streetName {
+    width: 70%;
+  }
+  .recordDetails {
+    font-size: 1rem;
+  }
+  .labels {
+    padding-right: 5px;
+  }
+  .information {
+    padding-left: 5px;
+  }
+  h3 {
+    font-size: 0.9rem;
+  }
 }

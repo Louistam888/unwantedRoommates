@@ -12,12 +12,12 @@
   align-items: center;
   background-color: #161515;
   padding: 10px;
+}
 
-  h3 {
-    font-family: $bodyText;
-    font-size: 2.4rem;
-    text-transform: uppercase;
-  }
+h3 {
+  font-family: $bodyText;
+  font-size: 2.4rem;
+  text-transform: uppercase;
 }
 
 .accordionItemHeader::after, .accordionItemHeader.active::after {
