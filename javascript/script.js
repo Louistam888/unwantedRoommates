@@ -30,7 +30,7 @@ app.getBedBugRecords = (house, street, borough)=> {
     }
   })
   .then((jsonData) =>{
-    console.log(jsonData)
+  
     if (jsonData.length === 0) {
 
       const noResults = document.createElement("div");
@@ -62,6 +62,8 @@ app.getBedBugRecords = (house, street, borough)=> {
 
 app.displayBedBugRecords = (arrayOfObjects) => {
   arrayOfObjects.forEach((obj) =>{
+
+    
     const number = obj.house_number;
     const address = obj.street_name;
     const borough = obj.borough;
@@ -71,11 +73,8 @@ app.displayBedBugRecords = (arrayOfObjects) => {
     const fileEnd = obj.filling_period_end_date;
     const totalUnits = obj.of_dwelling_units;
     const infestedUnits = obj.infested_dwelling_unit_count;
-    const reinfestedUnits = obj.re_infested_dwelling_unit;
+    const infestedPercentage = Math.round((infestedUnits/totalUnits) * 100) + "%";  
 
-    const infestedPercentage = Math.round((infestedUnits/totalUnits) * 100) + "%";
-    console.log(infestedUnits)
-    
     const resultContainer = document.createElement("div");
     resultContainer.classList.add('resultContainer');
     
@@ -86,8 +85,8 @@ app.displayBedBugRecords = (arrayOfObjects) => {
       <p class = "recordDetails"> ADDRESS:</p>
       <p class = "recordDetails"> BOROUGH:</p>
       <p class = "recordDetails"> ZIP CODE:</p>
-      <p class = "recordDetails"> INSPECTION RESULTS REPORTED:</p>
-      <p class = "recordDetails"> INSPECTION RESULTS PERIOD:</p>
+      <p class = "recordDetails"> RESULTS REPORTED:</p>
+      <p class = "recordDetails"> INSPECTION PERIOD:</p>
       <p class = "recordDetails"> UNITS FOUND INFESTED:</p>
     </div>
     `
@@ -100,7 +99,7 @@ app.displayBedBugRecords = (arrayOfObjects) => {
       <p class = "recordDetails"> ${borough}</p>
       <p class = "recordDetails"> ${zipCode}</p>      
       <p class = "recordDetails"> ${fileDate}</p>
-      <p class = "recordDetails"> "${fileStart} to ${fileEnd}"</p>
+      <p class = "recordDetails"> ${fileStart} to ${fileEnd}</p>
       <p class = "recordDetails"> ${infestedPercentage}</p>
     </div>`
   
@@ -115,11 +114,6 @@ app.displayBedBugRecords = (arrayOfObjects) => {
     }, 100);
   })
 }
-
-
-
-
-
 
 
 
@@ -239,14 +233,13 @@ app.events = () => {
     event.preventDefault();
 
   document.querySelector(".inspectionResults").replaceChildren();
+  document.querySelector(".inspectionResults2").replaceChildren();
 
     const house =  document.querySelector("#houseNumber").value;
     const streetRaw = document.querySelector("#streetName").value
     const street = streetRaw.replace(/(\d+)(st|nd|rd|th)/, "$1").toUpperCase();
     const borough = document.querySelector("#borough").value;
-
-    console.log(street)
-
+    
   app.getRatRecords(house, street, borough)
   app.getBedBugRecords(house, street, borough)
   });

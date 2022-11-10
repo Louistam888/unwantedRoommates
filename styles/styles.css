@@ -677,6 +677,10 @@ form input::placeholder, select, option {
   width: 50%;
 }
 
+.record, .details {
+  width: 50%;
+}
+
 .inspectionResults {
   border: 2px solid green;
 }
