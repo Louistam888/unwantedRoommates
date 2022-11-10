@@ -1,6 +1,6 @@
 const app = {};
 
-app.token = "sS3zbpWnUhAq2mVIM0BSwroqz"
+app.token = "ZLv4DuWOXJMDJjtoemNuEtwro"
 
 //URLS
 app.url = "https://data.cityofnewyork.us/resource/p937-wjvj.json"
@@ -48,7 +48,7 @@ app.getBedBugRecords = (house, street, borough)=> {
 
     } else {
 
-    // app.displayResults(jsonData);
+    app.displayBedBugRecords(jsonData);
     }
   })
   .catch((error)=> {
@@ -57,6 +57,77 @@ app.getBedBugRecords = (house, street, borough)=> {
       `<p class="noRecords"> Sorry there was a problem with your request. Please try again later</p>`
   });
 };
+
+//FUNCTION TO DISPLAY BEDBUG RESULTS
+
+app.displayBedBugRecords = (arrayOfObjects) => {
+  arrayOfObjects.forEach((obj) =>{
+    const number = obj.house_number;
+    const address = obj.street_name;
+    const borough = obj.borough;
+    const zipCode = obj.postcode;
+    const fileDate = obj.filing_date;
+    const fileStart = obj.filing_period_start_date;
+    const fileEnd = obj.filling_period_end_date;
+    const totalUnits = obj.of_dwelling_units;
+    const infestedUnits = obj.infested_dwelling_unit_count;
+    const reinfestedUnits = obj.re_infested_dwelling_unit;
+
+    const infestedPercentage = Math.round((infestedUnits/totalUnits) * 100) + "%";
+    console.log(infestedUnits)
+    
+    const resultContainer = document.createElement("div");
+    resultContainer.classList.add('resultContainer');
+    
+    const record = document.createElement("div");
+    record.classList.add('record');
+    record.innerHTML = `
+    <div class = "labels">
+      <p class = "recordDetails"> ADDRESS:</p>
+      <p class = "recordDetails"> BOROUGH:</p>
+      <p class = "recordDetails"> ZIP CODE:</p>
+      <p class = "recordDetails"> INSPECTION RESULTS REPORTED:</p>
+      <p class = "recordDetails"> INSPECTION RESULTS PERIOD:</p>
+      <p class = "recordDetails"> UNITS FOUND INFESTED:</p>
+    </div>
+    `
+
+    const details = document.createElement("div");
+    details.classList.add("details");
+    details.innerHTML = `
+    <div class ="information">
+      <p class = "recordDetails"> ${number} ${address}</p>
+      <p class = "recordDetails"> ${borough}</p>
+      <p class = "recordDetails"> ${zipCode}</p>      
+      <p class = "recordDetails"> ${fileDate}</p>
+      <p class = "recordDetails"> "${fileStart} to ${fileEnd}"</p>
+      <p class = "recordDetails"> ${infestedPercentage}</p>
+    </div>`
+  
+      resultContainer.append(record, details); 
+  
+    const append = () => {
+      document.querySelector('.inspectionResults2').append(resultContainer); 
+    }
+
+    setTimeout(() => {
+      append();
+    }, 100);
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //FUNCTION TO FETCH RAT API RECORDS
@@ -100,7 +171,7 @@ app.getRatRecords = (house, street, borough)=> {
 
     } else {
 
-    app.displayResults(jsonData);
+    app.displayRatResults(jsonData);
     }
   })
   .catch((error)=> {
@@ -110,7 +181,9 @@ app.getRatRecords = (house, street, borough)=> {
   });
 };
 
-app.displayResults = (arrayOfObjects) => {
+
+//FUNCTION TO DISPLAY RAT RESULTS 
+app.displayRatResults = (arrayOfObjects) => {
   arrayOfObjects.forEach((obj) =>{
     const number = obj.house_number;
     const address = obj.street_name;
