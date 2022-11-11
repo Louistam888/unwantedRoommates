@@ -259,172 +259,8 @@ a {
   src: url("/fonts/AverageSans/AverageSans-Regular.ttf");
   font-weight: normal;
 }
-@media (max-width: 1000px) {
-  form {
-    width: 100%;
-  }
-  .inputBar {
-    flex-direction: column;
-    width: 100%;
-    overflow: auto;
-  }
-  .addressEntry {
-    width: 100%;
-  }
-  #borough {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 10px 0;
-    text-align: center;
-  }
-  .submit {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-  }
-  .submit img {
-    display: none;
-  }
-  .search {
-    display: flex !important;
-    font-size: 2.4rem;
-    text-transform: uppercase;
-    text-align: center;
-    justify-content: center;
-    padding: 10px 0;
-  }
-  h1 {
-    font-size: 5rem !important;
-  }
-  h3 {
-    font-size: 2rem !important;
-  }
-  .ratFacts, .aboutApp {
-    font-size: 3rem !important;
-  }
-}
-@media (max-width: 780px) {
-  .mainTextContainer {
-    margin-top: 50px;
-  }
-  form input::placeholder, select, option {
-    font-size: 2rem !important;
-  }
-  input {
-    font-size: 2rem !important;
-    padding: 0 5px !important;
-  }
-  h1 {
-    font-size: 3.5rem !important;
-    line-height: 1rem !important;
-  }
-  .h1Span {
-    font-size: 1.6rem !important;
-    line-height: 2.3rem !important;
-  }
-  h3, p {
-    font-size: 1.8rem !important;
-  }
-  .ratFacts, .aboutApp {
-    font-size: 2.8rem !important;
-    line-height: 2.6rem !important;
-  }
-}
-@media (max-width: 680px) {
-  form input::placeholder, select, option {
-    font-size: 1.8rem !important;
-  }
-  input {
-    font-size: 1.8rem !important;
-  }
-  h1 {
-    font-size: 3.5rem !important;
-    line-height: 1rem !important;
-  }
-  .h1Span {
-    font-size: 1.6rem !important;
-    line-height: 2rem !important;
-    padding: 0 20px;
-  }
-  .carousel {
-    margin-bottom: 50px !important;
-  }
-  h2 {
-    font-size: 3rem !important;
-  }
-  h3 {
-    font-size: 1.3rem !important;
-  }
-  .ratFacts, .aboutApp {
-    font-size: 2rem !important;
-    line-height: 2.3rem !important;
-    padding-left: 30px !important;
-    padding-right: 30px !important;
-  }
-}
-@media (max-width: 485px) {
-  form input::placeholder, select, option {
-    font-size: 1.5rem !important;
-  }
-  input {
-    font-size: 1.5rem !important;
-  }
-  h1 {
-    font-size: 2.8rem !important;
-    line-height: 1rem !important;
-  }
-  .h1Span {
-    font-size: 1.4rem !important;
-    line-height: 2.3rem !important;
-    padding: 0 20px !important;
-  }
-  .carousel {
-    margin-bottom: 50px !important;
-  }
-  h2 {
-    font-size: 3rem !important;
-  }
-  h3 {
-    font-size: 1.3rem !important;
-  }
-  .ratFacts, .aboutApp {
-    font-size: 2rem !important;
-    line-height: 2.3rem !important;
-  }
-}
-@media (max-width: 435px) {
-  h1 {
-    font-size: 2.1rem !important;
-  }
-  .h1Span {
-    font-size: 1rem !important;
-    line-height: 1.5rem !important;
-    padding: 0 20px !important;
-  }
-  #houseNumber {
-    width: 30% !important;
-  }
-  #streetName {
-    width: 70% !important;
-  }
-  .recordDetails {
-    font-size: 1rem !important;
-  }
-  .labels {
-    padding-right: 5px !important;
-  }
-  .information {
-    padding-left: 5px !important;
-  }
-  h3 {
-    font-size: 0.9rem !important;
-  }
-}
 header {
-  height: 600px;
+  height: 650px;
   width: 100%;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0.15) 50%, rgba(0, 0, 0, 0.9) 100%), url(/assets/new_york_empire_state_building_cityscape.jpg);
   background-size: cover;
@@ -461,6 +297,7 @@ h1 {
   letter-spacing: 0.175rem;
   display: inline-block;
   text-align: center;
+  width: 100%;
 }
 
 .h1Span {
@@ -489,7 +326,7 @@ h1 {
   text-align: center;
   line-height: 3.5rem;
   text-shadow: -1px -1px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 input {
@@ -538,10 +375,48 @@ form input::placeholder, select, option {
 .submit {
   cursor: pointer;
   width: auto;
+  transition: transform 0.6s ease-in-out;
 }
 
+.submit:active {
+  animation: push 0.5s ease-in-out;
+}
+
+@keyframes push {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.99);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .search {
   display: none;
+}
+
+.sampleAddressContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.sampleAddresses {
+  margin-bottom: 50px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+.sampleAddresses li {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-align: left;
+  line-height: 3rem;
+  text-shadow: -1px -1px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, 2px 2px 0 #000000;
 }
 
 .carousel {
@@ -667,6 +542,20 @@ form input::placeholder, select, option {
   text-align: center;
 }
 
+.returnContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.inspectionResults, .inspectionResults2 {
+  width: 100%;
+}
+
+.record, .details {
+  width: 50%;
+}
+
 h2 {
   font-family: "NotoSansJP";
   font-size: 5rem;
@@ -681,14 +570,19 @@ h2 {
   margin: 20px 0;
 }
 
+.h2Results {
+  font-size: 3rem;
+  margin-bottom: 0;
+  display: none;
+}
+
 .resultContainer {
   display: flex;
   margin: 10px auto;
   display: flex;
   justify-content: center;
   width: 100%;
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border: 2px solid black;
   animation: change 0.8s ease;
 }
 
@@ -746,7 +640,8 @@ h2 {
   background-color: #161515;
   padding: 10px;
 }
-.accordionItemHeader h3 {
+
+h3 {
   font-family: "AverageSans";
   font-size: 2.4rem;
   text-transform: uppercase;
@@ -776,7 +671,7 @@ h2 {
   padding: 10px;
   color: black;
   font-size: 2.4rem;
-  border: 2px solid black;
+  border: 2px solid #161515;
   font-family: "AverageSans";
 }
 
@@ -802,4 +697,223 @@ footer {
   font-size: 2rem;
   text-align: center;
   color: #000000;
+}
+
+@media (max-width: 1000px) {
+  h1 {
+    font-size: 5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  form {
+    width: 85%;
+  }
+  input {
+    height: 6rem;
+  }
+  .inputBar {
+    flex-direction: column;
+    width: 100%;
+    overflow: auto;
+    border-radius: 0;
+  }
+  .addressEntry {
+    width: 100%;
+  }
+  #borough {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .submit {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    background-color: #161515;
+    color: white;
+  }
+  .submit img {
+    display: none;
+  }
+  .search {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    justify-content: center;
+    padding: 10px 0;
+    display: flex;
+  }
+  .ratFacts, .aboutApp {
+    font-size: 3rem;
+  }
+  .noRecords {
+    padding: 10px 0;
+  }
+  .sampleAddresses {
+    margin-bottom: 0px;
+  }
+  .sampleAddresses li {
+    font-size: 2rem;
+    line-height: 2.2rem;
+  }
+}
+@media (max-width: 780px) {
+  .mainTextContainer {
+    margin-top: 50px;
+  }
+  form input::placeholder, select, option {
+    font-size: 2rem;
+  }
+  input {
+    font-size: 2rem;
+    padding: 0 5px;
+    height: 5rem;
+  }
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1rem;
+  }
+  .h1Span {
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+  }
+  h3, p {
+    font-size: 1.8rem;
+  }
+  .ratFacts, .aboutApp {
+    font-size: 2.8rem;
+    line-height: 2.6rem;
+  }
+  .noRecords {
+    padding: 5px 0;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 680px) {
+  header {
+    height: 600px;
+  }
+  form input::placeholder, select, option {
+    font-size: 1.8rem;
+  }
+  input {
+    font-size: 1.8rem;
+  }
+  .search {
+    font-size: 2.2rem;
+    padding: 5px 0;
+  }
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1rem;
+  }
+  .h1Span {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    padding: 0 20px;
+  }
+  .carousel {
+    margin-bottom: 50px;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  .h2Results {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  .ratFacts, .aboutApp {
+    font-size: 2rem;
+    line-height: 2.3rem;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .sampleAddresses {
+    font-size: 2rem;
+  }
+  .sampleAddresses li {
+    line-height: 2.2rem;
+  }
+  .noRecords {
+    padding: 2.5px 0;
+    font-size: 1.5rem;
+  }
+  .sampleAddresses {
+    margin-bottom: 0px;
+  }
+  .sampleAddresses li {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+}
+@media (max-width: 485px) {
+  form input::placeholder, select, option {
+    font-size: 1.5rem;
+  }
+  input {
+    font-size: 1.5rem;
+  }
+  h1 {
+    font-size: 2.8rem;
+    line-height: 1rem;
+  }
+  .h1Span {
+    font-size: 1.4rem;
+    line-height: 2.3rem;
+    padding: 0 20px;
+  }
+  .carousel {
+    margin-bottom: 50px;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  .ratFacts, .aboutApp {
+    font-size: 2rem;
+    line-height: 2.3rem;
+  }
+  .search {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 435px) {
+  h1 {
+    font-size: 2.1rem;
+  }
+  .h1Span {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0 20px;
+  }
+  #houseNumber {
+    width: 30%;
+  }
+  #streetName {
+    width: 70%;
+  }
+  .recordDetails {
+    font-size: 1rem;
+  }
+  .labels {
+    padding-right: 5px;
+  }
+  .information {
+    padding-left: 5px;
+  }
+  .h2Results {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 0.9rem;
+  }
 }

@@ -1,18 +1,29 @@
 @use "./variables" as *;
 
 
-//NOTE: FOR SOME REASON FONT SIZES AND SOME ELEMENTS COULD NOT BE RESIZED DUE TO A SASS ERROR. THE !IMPORTANT WORKAROUND WAS USED TO MEET THE MVP OF THIS ASSIGNMENT BY DEADLINE. 
-
 @media (max-width: 1000px) {
+
+  h1 {
+    font-size: 5rem; 
+  }
+
+  h3 {
+    font-size: 2rem; 
+  }
  
   form {
-    width: 100%;
+    width: 85%;
+  }
+
+  input {
+    height: 6rem;
   }
 
   .inputBar {
     flex-direction: column;
     width: 100%;
     overflow: auto;
+    border-radius: 0;
   }
 
   .addressEntry {
@@ -33,31 +44,38 @@
     justify-content: center;
     width: 100%;
     text-align: center;
-
+    background-color: #161515;
+    color: white;
+ 
     img {
       display: none;
     }
   }
 
   .search {
-    display: flex !important;
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
     text-align: center;
     justify-content: center;
     padding: 10px 0;
+    display: flex;
   }
-  
-  h1 {
-    font-size: 5rem !important; 
+    
+  .ratFacts, .aboutApp {
+    font-size: 3rem; 
   }
 
-  h3 {
-    font-size: 2rem !important; 
+  .noRecords {
+    padding: 10px 0;
   }
+
+  .sampleAddresses {
+    margin-bottom: 0px;
   
-  .ratFacts, .aboutApp {
-    font-size: 3rem !important; 
+    li {
+      font-size: 2rem; 
+      line-height: 2.2rem;
+    }
   }
 }
 
@@ -68,146 +86,195 @@
   }
 
   form input::placeholder, select, option {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
 
   input {
-    font-size: 2rem !important;
-    padding: 0 5px !important;
+    font-size: 2rem;
+    padding: 0 5px;
+    height: 5rem;
   }
 
   h1 {
-    font-size: 3.5rem !important; 
-    line-height: 1rem !important;
+    font-size: 3.5rem; 
+    line-height: 1rem;
   }
 
   .h1Span {
-    font-size:  1.6rem !important;
-    line-height: 2.3rem !important;
+    font-size:  1.6rem;
+    line-height: 2.3rem;
   }
 
   h3, p {
-    font-size: 1.8rem !important; 
+    font-size: 1.8rem; 
   }
   
   .ratFacts, .aboutApp {
-    font-size: 2.8rem !important; 
-    line-height: 2.6rem !important; 
+    font-size: 2.8rem; 
+    line-height: 2.6rem; 
   }
 
+  .noRecords {
+    padding: 5px 0;
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 680px) {
 
+  header {
+    height: 600px;
+  }
+
   form input::placeholder, select, option {
-    font-size: 1.8rem !important;
+    font-size: 1.8rem;
   }
 
   input {
-    font-size: 1.8rem !important;
+    font-size: 1.8rem;
+  }
+
+  .search {
+    font-size: 2.2rem;
+    padding: 5px 0;
   }
   
   h1 {
-    font-size: 3.5rem !important; 
-    line-height: 1rem !important;
+    font-size: 3.5rem; 
+    line-height: 1rem;
   }
 
   .h1Span {
-    font-size:  1.6rem !important;
-    line-height: 2rem !important;
+    font-size:  1.6rem;
+    line-height: 2rem;
     padding: 0 20px; 
   }
 
   .carousel  {
-    margin-bottom: 50px !important; 
+    margin-bottom: 50px; 
   }
 
   h2 {
-    font-size: 3rem !important;
+    font-size: 3rem;
+  }
+
+  .h2Results {
+    font-size: 2.5rem;
   }
 
   h3 {
-    font-size: 1.3rem !important; 
+    font-size: 1.3rem; 
   }
   
   .ratFacts, .aboutApp {
-    font-size: 2rem !important; 
-    line-height: 2.3rem !important; 
-    padding-left: 30px !important;
-    padding-right: 30px !important;
+    font-size: 2rem; 
+    line-height: 2.3rem; 
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .sampleAddresses {
+    font-size: 2rem;
+
+    li {
+      line-height: 2.2rem;
+    }
+  }
+  
+  .noRecords {
+    padding: 2.5px 0;
+    font-size: 1.5rem;
+  }
+
+  .sampleAddresses {
+    margin-bottom: 0px;
+  
+    li {
+      font-size: 1.3rem; 
+      line-height: 1.8rem;
+    }
   }
 }
   
 @media (max-width: 485px) {
   form input::placeholder, select, option {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
 
   input {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
   
   h1 {
-    font-size: 2.8rem !important; 
-    line-height: 1rem !important;
+    font-size: 2.8rem; 
+    line-height: 1rem;
   }
 
   .h1Span {
-    font-size:  1.4rem !important;
-    line-height: 2.3rem !important;
-    padding: 0 20px !important; 
+    font-size:  1.4rem;
+    line-height: 2.3rem;
+    padding: 0 20px; 
   }
 
   .carousel  {
-    margin-bottom: 50px !important; 
+    margin-bottom: 50px; 
   }
 
   h2 {
-    font-size: 3rem !important;
+    font-size: 3rem;
   }
 
   h3 {
-    font-size: 1.3rem !important; 
+    font-size: 1.3rem; 
   }
   
   .ratFacts, .aboutApp {
-    font-size: 2rem !important; 
-    line-height: 2.3rem !important; 
+    font-size: 2rem; 
+    line-height: 2.3rem; 
+  }
+
+  .search {
+    font-size: 1.8rem;
+  
   }
 }
 
 @media (max-width: 435px) {
   h1 {
-    font-size: 2.1rem !important; 
+    font-size: 2.1rem; 
   }
 
   .h1Span {
-    font-size:  1rem !important;
-    line-height: 1.5rem !important;
-    padding: 0 20px !important; 
+    font-size:  1rem;
+    line-height: 1.5rem;
+    padding: 0 20px; 
   }
 
   #houseNumber {
-    width: 30%  !important;
+    width: 30% ;
   }
   
   #streetName {
-    width: 70% !important;
+    width: 70%;
   }
 
   .recordDetails {
-    font-size: 1rem !important;
+    font-size: 1rem;
   }
 
   .labels {
-    padding-right: 5px !important;
+    padding-right: 5px;
   }
   
   .information {
-    padding-left: 5px !important;
+    padding-left: 5px;
+  }
+
+  .h2Results {
+    font-size: 2rem;
   }
 
   h3 {
-    font-size: 0.9rem !important; 
+    font-size: 0.9rem; 
   }
 }

@@ -1,10 +1,12 @@
 @use "partials/setup";
 @use "partials/variables" as *;
 @use "partials/typography";
-@use "partials/mediaQueries";
+
 
 @use "partials/header";
 @use "partials/carousel";
 @use "partials/answerSection";
 @use "partials/faqAccordion";
 @use "partials/footer";
+
+@use "partials/mediaQueries";
