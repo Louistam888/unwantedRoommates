@@ -15,10 +15,15 @@
     width: 85%;
   }
 
+  input {
+    height: 6rem;
+  }
+
   .inputBar {
     flex-direction: column;
     width: 100%;
     overflow: auto;
+    border-radius: 0;
   }
 
   .addressEntry {
@@ -39,6 +44,8 @@
     justify-content: center;
     width: 100%;
     text-align: center;
+     background-color: #161515;
+     color: white;
 
     img {
       display: none;
@@ -52,6 +59,7 @@
     justify-content: center;
     padding: 10px 0;
     display: flex;
+   
   }
     
   .ratFacts, .aboutApp {
@@ -72,6 +80,7 @@
   input {
     font-size: 2rem;
     padding: 0 5px;
+    height: 5rem;
   }
 
   h1 {

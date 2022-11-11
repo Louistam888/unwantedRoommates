@@ -633,7 +633,7 @@ h3 {
   padding: 10px;
   color: black;
   font-size: 2.4rem;
-  border: 2px solid black;
+  border: 2px solid #161515;
   font-family: "AverageSans";
 }
 
@@ -671,10 +671,14 @@ footer {
   form {
     width: 85%;
   }
+  input {
+    height: 6rem;
+  }
   .inputBar {
     flex-direction: column;
     width: 100%;
     overflow: auto;
+    border-radius: 0;
   }
   .addressEntry {
     width: 100%;
@@ -692,6 +696,8 @@ footer {
     justify-content: center;
     width: 100%;
     text-align: center;
+    background-color: #161515;
+    color: white;
   }
   .submit img {
     display: none;
@@ -718,6 +724,7 @@ footer {
   input {
     font-size: 2rem;
     padding: 0 5px;
+    height: 5rem;
   }
   h1 {
     font-size: 3.5rem;
