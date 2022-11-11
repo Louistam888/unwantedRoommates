@@ -337,7 +337,6 @@ input {
 
 form {
   width: 60%;
-  border: 2px solid green;
 }
 
 .addressEntry {
@@ -535,6 +534,7 @@ h2 {
 .h2Results {
   font-size: 3rem;
   margin-bottom: 0;
+  display: none;
 }
 
 .resultContainer {
@@ -753,8 +753,11 @@ footer {
   .carousel {
     margin-bottom: 50px;
   }
-  h2, .h2esults {
+  h2 {
     font-size: 3rem;
+  }
+  .h2Results {
+    font-size: 2.5rem;
   }
   h3 {
     font-size: 1.3rem;
@@ -819,6 +822,9 @@ footer {
   }
   .information {
     padding-left: 5px;
+  }
+  .h2Results {
+    font-size: 2rem;
   }
   h3 {
     font-size: 0.9rem;

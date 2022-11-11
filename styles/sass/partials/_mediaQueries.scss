@@ -120,8 +120,12 @@
     margin-bottom: 50px; 
   }
 
-  h2, .h2esults {
+  h2 {
     font-size: 3rem;
+  }
+
+  .h2Results {
+    font-size: 2.5rem;
   }
 
   h3 {
@@ -203,6 +207,10 @@
   
   .information {
     padding-left: 5px;
+  }
+
+  .h2Results {
+    font-size: 2rem;
   }
 
   h3 {

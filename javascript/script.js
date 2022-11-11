@@ -235,9 +235,14 @@ app.events = () => {
   document.querySelector("form").addEventListener('submit', function(event){
     event.preventDefault();
 
-  document.querySelector(".inspectionResults").replaceChildren();
-  document.querySelector(".inspectionResults2").replaceChildren();
+    document.querySelector(".inspectionResults").replaceChildren();
+    document.querySelector(".inspectionResults2").replaceChildren();
 
+    const recordHeadlines = document.querySelectorAll('.h2Results')
+      recordHeadlines.forEach((headline) => {
+      headline.style.display = "block";
+    });
+  
     const house =  document.querySelector("#houseNumber").value;
     const streetRaw = document.querySelector("#streetName").value
     const street = streetRaw.replace(/(\d+)(st|nd|rd|th)/, "$1").toUpperCase();
