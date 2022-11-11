@@ -58,9 +58,28 @@
 
         <div class="explained">
           <div class="wrapper">
-            <p class="aboutApp">Simply enter the property number, street name and borough of an address in the input fields above to see the latest rat inspection results for that property, if available.</p>
+            <p class="aboutApp">Enter a New York City address to see the latest rat and bedbug inspection results for that property, if available. Some examples are below: </p>
 
-            <p class="aboutApp">ie: 235 Jefferson Street, Brooklyn ... 662 Magenta Street, Bronx ... 1920 Palmetto Street - Queens... 187 Kent Avenue, Brooklyn... 381 Hooper Street</p>
+            <div class="sampleAddressContainer">
+              <ul class="sampleAddresses">
+                <li>
+                  <p> 235 Jefferson Street, Brooklyn</p>
+                </li>
+                <li>
+                  <p>662 Magenta Street, Bronx</p>
+                </li>
+                <li>
+                  <p>1920 Palmetto Street, Queens</p>
+                </li>
+                <li>
+                  <p>187 Kent Avenue, Brooklyn</p>
+                </li>
+                <li>
+                  <p>381 Hooper Street, Brooklyn</p>
+                </li>
+              </ul>
+            </div>
+            
           </div>
         </div><!--explained div ending-->
       </div><!-- headerElementsContainer div end -->
@@ -220,20 +239,18 @@
         </div><!--FAQ wrapper div end-->
   </section>
 
-
-
-
-    </section>
   </main>
 </body>
 <script src="./javascript/script.js"></script>
 <script src="./javascript/carousel.js"></script>
 <script src="./javascript/accordion.js"></script>
 <footer>
-  <p class="footerText">
-    Powered by New York City Open Data API
-  </p>
-  <p class="junoLink">
-    Created at&nbsp<a href="https://junocollege.com/" target="_blank">Juno College</a></p> <!--SASS ERROR NECESSITATES NBSP-->
+  <div class="wrapper">
+    <p class="footerText">
+      Powered by New York City Open Data API
+    </p>
+    <p class="junoLink">
+      Created at&nbsp<a href="https://junocollege.com/" target="_blank">Juno College</a></p>
+  </div>
 </footer>
 </html>

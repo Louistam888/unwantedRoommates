@@ -68,6 +68,15 @@
   .noRecords {
     padding: 10px 0;
   }
+
+  .sampleAddresses {
+    margin-bottom: 0px;
+  
+    li {
+      font-size: 2rem; 
+      line-height: 2.2rem;
+    }
+  }
 }
 
 @media (max-width: 780px) {
@@ -109,10 +118,13 @@
     padding: 5px 0;
     font-size: 2rem;
   }
-
 }
 
 @media (max-width: 680px) {
+
+  header {
+    height: 600px;
+  }
 
   form input::placeholder, select, option {
     font-size: 1.8rem;
@@ -161,9 +173,26 @@
     padding-right: 30px;
   }
 
+  .sampleAddresses {
+    font-size: 2rem;
+
+    li {
+      line-height: 2.2rem;
+    }
+  }
+  
   .noRecords {
     padding: 2.5px 0;
     font-size: 1.5rem;
+  }
+
+  .sampleAddresses {
+    margin-bottom: 0px;
+  
+    li {
+      font-size: 1.3rem; 
+      line-height: 1.8rem;
+    }
   }
 }
   
