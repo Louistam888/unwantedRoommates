@@ -6,6 +6,7 @@ photos.slides = Array.from(photos.track.children)
 photos.nextButton = document.querySelector(".carouselButtonRight");
 photos.prevButton = document.querySelector(".carouselButtonLeft");
 photos.carouselNav = document.querySelector(".carouselNav");
+// console.log(Array.from(photos.carouselNav.children))
 
 photos.dotsArray = Array.from(photos.carouselNav.children);
 
@@ -87,5 +88,3 @@ photos.init = () => {
 
 photos.init();
 
-
-//built with tutorial by Kevin Powell https://www.youtube.com/watch?v=VYsVOamdB0g
