@@ -44,26 +44,29 @@
     justify-content: center;
     width: 100%;
     text-align: center;
-     background-color: #161515;
-     color: white;
-
+    background-color: #161515;
+    color: white;
+ 
     img {
       display: none;
     }
   }
 
   .search {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
     text-align: center;
     justify-content: center;
     padding: 10px 0;
     display: flex;
-   
   }
     
   .ratFacts, .aboutApp {
     font-size: 3rem; 
+  }
+
+  .noRecords {
+    padding: 10px 0;
   }
 }
 
@@ -102,6 +105,11 @@
     line-height: 2.6rem; 
   }
 
+  .noRecords {
+    padding: 5px 0;
+    font-size: 2rem;
+  }
+
 }
 
 @media (max-width: 680px) {
@@ -112,6 +120,11 @@
 
   input {
     font-size: 1.8rem;
+  }
+
+  .search {
+    font-size: 2.2rem;
+    padding: 5px 0;
   }
   
   h1 {
@@ -146,6 +159,11 @@
     line-height: 2.3rem; 
     padding-left: 30px;
     padding-right: 30px;
+  }
+
+  .noRecords {
+    padding: 2.5px 0;
+    font-size: 1.5rem;
   }
 }
   
@@ -184,6 +202,11 @@
   .ratFacts, .aboutApp {
     font-size: 2rem; 
     line-height: 2.3rem; 
+  }
+
+  .search {
+    font-size: 1.8rem;
+  
   }
 }
 
