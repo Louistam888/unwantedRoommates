@@ -3,8 +3,8 @@ const app = {};
 app.token = "ZLv4DuWOXJMDJjtoemNuEtwro"
 
 //URLS
-app.url = "https://data.cityofnewyork.us/resource/p937-wjvj.json"
-app.url2 = "https://data.cityofnewyork.us/resource/wz6d-d3jb.json"
+app.url = "https://proxy-ugwolsldnq-uc.a.run.app/https://data.cityofnewyork.us/resource/p937-wjvj.json"
+app.url2 = "https://proxy-ugwolsldnq-uc.a.run.app/https://data.cityofnewyork.us/resource/wz6d-d3jb.json"
 
 
 //REUSABLE FUNCTION TO CONVERT TIME TO HUMAN READABLE FORMAT
@@ -15,6 +15,117 @@ const convertTime = (timeObj) => {
     day: "numeric"
   })
 }
+
+
+//FUNCTION TO FETCH RAT API RECORDS
+app.getRatRecords = (house, street, borough)=> {
+
+  const url = new URL (app.url);
+ 
+  url.search = new URLSearchParams({
+    "$$app_token": app.token,
+    "$limit": 5,
+    "$order": "inspection_date DESC",
+    "house_number": house,
+    "street_name": street,
+    "borough": borough,
+  });
+
+  fetch(url).then((rodent) =>{
+    
+    if (rodent.ok) {
+      return rodent.json();
+    } else {
+      throw new Error(rodent.statusText)
+    }
+  })
+  .then((jsonData) =>{
+    
+    if (jsonData.length === 0) {
+
+      const noResults = document.createElement("div");
+      noResults.classList.add("noRecords");
+      noResults.innerHTML =
+      `<p class="noRecords"> No records found. You're probably safe from rats.</p>`
+
+      const append = () => {
+        document.querySelector(".inspectionResults").append(noResults);
+      }
+
+      setTimeout(() => {
+        append();
+      }, 100);
+
+    } else {
+
+    app.displayRatResults(jsonData);
+    }
+  })
+  .catch((error)=> {
+
+    if(error.message === "Not Found") {
+      const noResults = document.createElement("div");
+      noResults.classList.add("noRecords");
+      noResults.innerHTML =
+      `<p class="noRecords"> The API containing rat inspection data is currently unavailable. Please try again later.</p>`
+
+      document.querySelector(".inspectionResults").append(noResults);  
+    }
+  });
+};
+
+
+//FUNCTION TO DISPLAY RAT RESULTS 
+app.displayRatResults = (arrayOfObjects) => {
+  arrayOfObjects.forEach((obj) =>{
+    const number = obj.house_number;
+    const address = obj.street_name;
+    const zipCode = obj.zip_code;
+    const borough = obj.borough;
+    const date = convertTime(obj.inspection_date);
+    const initial = obj.inspection_type;
+    const iResult = obj.result;
+    
+    const resultContainer = document.createElement("div");
+    resultContainer.classList.add('resultContainer');
+    
+    const record = document.createElement("div");
+    record.classList.add('record');
+    record.innerHTML = `
+    <div class = "labels">
+      <p class = "recordDetails"> ADDRESS:</p>
+      <p class = "recordDetails"> BOROUGH:</p>
+      <p class = "recordDetails"> ZIP CODE:</p>
+      <p class = "recordDetails"> INSPECTION DATE:</p>
+      <p class = "recordDetails"> INSPECTION TYPE:</p>
+      <p class = "recordDetails"> RESULT:</p>
+    </div>
+    `
+
+    const details = document.createElement("div");
+    details.classList.add("details");
+    details.innerHTML = `
+    <div class ="information">
+      <p class = "recordDetails"> ${number} ${address}</p>
+      <p class = "recordDetails"> ${borough}</p>
+      <p class = "recordDetails"> ${zipCode}</p>
+      <p class = "recordDetails"> ${date}</p>
+      <p class = "recordDetails"> ${initial}</p>
+      <p class = "recordDetails"> ${iResult}</p>
+    </div>`
+  
+      resultContainer.append(record, details); 
+  
+    const append = () => {
+      document.querySelector('.inspectionResults').append(resultContainer); 
+    }
+
+    setTimeout(() => {
+      append();
+    }, 100);
+  })
+}
+
 
 
 //FUNCTION TO FETCH BEDBUG API RECORDS 
@@ -36,8 +147,9 @@ app.getBedBugRecords = (house, street, borough)=> {
     if (bedbug.ok) {
       return bedbug.json();
     } else {
-      throw new Error("There was an unexpected problem with the API. Please try again later.")
+      throw new Error(bedbug.statusText)
     }
+   
   })
   .then((jsonData) =>{
   
@@ -62,9 +174,15 @@ app.getBedBugRecords = (house, street, borough)=> {
     }
   })
   .catch((error)=> {
-    noResults.classList.add("noRecords");
+
+    if(error.message === "Not Found") {
+      const noResults = document.createElement("div");
+      noResults.classList.add("noRecords");
       noResults.innerHTML =
-      `<p class="noRecords"> Sorry there was a problem with your request. Please try again later</p>`
+      `<p class="noRecords"> The API containing bedbug inspection data is currently unavailable. Please try again later.</p>`
+
+      document.querySelector(".inspectionResults2").append(noResults);
+    } 
   });
 };
 
@@ -126,109 +244,6 @@ app.displayBedBugRecords = (arrayOfObjects) => {
 }
 
 
-
-//FUNCTION TO FETCH RAT API RECORDS
-app.getRatRecords = (house, street, borough)=> {
-
-  const url = new URL (app.url);
- 
-  url.search = new URLSearchParams({
-    "$$app_token": app.token,
-    "$limit": 5,
-    "$order": "inspection_date DESC",
-    "house_number": house,
-    "street_name": street,
-    "borough": borough,
-  });
-
-  fetch(url).then((rodent) =>{
-    
-    if (rodent.ok) {
-      return rodent.json();
-    } else {
-      throw new Error("There was an unexpected problem with the API. Please try again later.")
-    }
-  })
-  .then((jsonData) =>{
-    
-    if (jsonData.length === 0) {
-
-      const noResults = document.createElement("div");
-      noResults.classList.add("noRecords");
-      noResults.innerHTML =
-      `<p class="noRecords"> No records found. You're probably safe from rats.</p>`
-
-      const append = () => {
-        document.querySelector(".inspectionResults").append(noResults);
-      }
-
-      setTimeout(() => {
-        append();
-      }, 100);
-
-    } else {
-
-    app.displayRatResults(jsonData);
-    }
-  })
-  .catch((error)=> {
-    noResults.classList.add("noRecords");
-      noResults.innerHTML =
-      `<p class="noRecords"> Sorry there was a problem with your request. Please try again later</p>`
-  });
-};
-
-
-//FUNCTION TO DISPLAY RAT RESULTS 
-app.displayRatResults = (arrayOfObjects) => {
-  arrayOfObjects.forEach((obj) =>{
-    const number = obj.house_number;
-    const address = obj.street_name;
-    const zipCode = obj.zip_code;
-    const borough = obj.borough;
-    const date = convertTime(obj.inspection_date);
-    const initial = obj.inspection_type;
-    const iResult = obj.result;
-    
-    const resultContainer = document.createElement("div");
-    resultContainer.classList.add('resultContainer');
-    
-    const record = document.createElement("div");
-    record.classList.add('record');
-    record.innerHTML = `
-    <div class = "labels">
-      <p class = "recordDetails"> ADDRESS:</p>
-      <p class = "recordDetails"> BOROUGH:</p>
-      <p class = "recordDetails"> ZIP CODE:</p>
-      <p class = "recordDetails"> INSPECTION DATE:</p>
-      <p class = "recordDetails"> INSPECTION TYPE:</p>
-      <p class = "recordDetails"> RESULT:</p>
-    </div>
-    `
-
-    const details = document.createElement("div");
-    details.classList.add("details");
-    details.innerHTML = `
-    <div class ="information">
-      <p class = "recordDetails"> ${number} ${address}</p>
-      <p class = "recordDetails"> ${borough}</p>
-      <p class = "recordDetails"> ${zipCode}</p>
-      <p class = "recordDetails"> ${date}</p>
-      <p class = "recordDetails"> ${initial}</p>
-      <p class = "recordDetails"> ${iResult}</p>
-    </div>`
-  
-      resultContainer.append(record, details); 
-  
-    const append = () => {
-      document.querySelector('.inspectionResults').append(resultContainer); 
-    }
-
-    setTimeout(() => {
-      append();
-    }, 100);
-  })
-}
 
 app.events = () => { 
 
