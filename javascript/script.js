@@ -48,13 +48,7 @@ app.getRatRecords = (house, street, borough)=> {
       noResults.innerHTML =
       `<p class="noRecords"> No records found. You're probably safe from rats.</p>`
 
-      const append = () => {
-        document.querySelector(".inspectionResults").append(noResults);
-      }
-
-      setTimeout(() => {
-        append();
-      }, 100);
+      document.querySelector(".inspectionResults").append(noResults);
 
     } else {
 
@@ -114,15 +108,9 @@ app.displayRatResults = (arrayOfObjects) => {
       <p class = "recordDetails"> ${iResult}</p>
     </div>`
   
-      resultContainer.append(record, details); 
-  
-    const append = () => {
-      document.querySelector('.inspectionResults').append(resultContainer); 
-    }
+    resultContainer.append(record, details); 
 
-    setTimeout(() => {
-      append();
-    }, 100);
+    document.querySelector('.inspectionResults').append(resultContainer); 
   })
 }
 
@@ -160,14 +148,8 @@ app.getBedBugRecords = (house, street, borough)=> {
       noResults.innerHTML =
       `<p class="noRecords"> No records found. You're probably safe from bedbugs.</p>`
 
-      const append = () => {
-        document.querySelector(".inspectionResults2").append(noResults);
-      }
-
-      setTimeout(() => {
-        append();
-      }, 100);
-
+      document.querySelector(".inspectionResults2").append(noResults);
+    
     } else {
 
     app.displayBedBugRecords(jsonData);
@@ -232,14 +214,8 @@ app.displayBedBugRecords = (arrayOfObjects) => {
     </div>`
   
     resultContainer.append(record, details); 
-  
-    const append = () => {
-      document.querySelector('.inspectionResults2').append(resultContainer); 
-    }
-
-    setTimeout(() => {
-      append();
-    }, 100);
+    
+    document.querySelector('.inspectionResults2').append(resultContainer); 
   })
 }
 
