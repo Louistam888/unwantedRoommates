@@ -109,11 +109,9 @@ app.displayRatResults = (arrayOfObjects) => {
     </div>`
   
     resultContainer.append(record, details); 
-
     document.querySelector('.inspectionResults').append(resultContainer); 
   })
 }
-
 
 
 //FUNCTION TO FETCH BEDBUG API RECORDS 
@@ -214,11 +212,9 @@ app.displayBedBugRecords = (arrayOfObjects) => {
     </div>`
   
     resultContainer.append(record, details); 
-    
     document.querySelector('.inspectionResults2').append(resultContainer); 
   })
 }
-
 
 
 app.events = () => { 
